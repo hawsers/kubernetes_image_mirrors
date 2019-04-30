@@ -1,8 +1,13 @@
 # Kubernetes Images Mirror
 
-## Run sh before bootup Kubernetes 
+# Check your docker's kubernetes version
+Check kubernetes version in "About Docker Desktop"
+![About Docker Desktop](https://user-images.githubusercontent.com/1544010/56942975-f34cdd00-6b4f-11e9-8042-142b8b116419.png)
 
-update variables in pull_kubernetes_images_from_mirror.sh:
+## Run sh before enable Kubernetes 
+
+Update variables in pull_kubernetes_images_from_mirror.sh.
+For example:
 
 ```
 KUBE_VERSION=v1.10.11
@@ -12,7 +17,7 @@ DNS_VERSION=1.14.8
 DASHBOARD_VERSION=v1.10.1
 ```
 
-run sh:
+Run sh:
 ```
 ./pull_kubernetes_images_from_mirror.sh
 ```
