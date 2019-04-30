@@ -6,7 +6,7 @@ Check kubernetes version in "About Docker Desktop"
 
 ## Run sh before enable Kubernetes 
 
-Update variables in pull_kubernetes_images_from_mirror.sh.
+Update variables in pull_docker_kubernetes_images_from_mirror.sh.
 For example:
 
 ```
@@ -19,7 +19,7 @@ DASHBOARD_VERSION=v1.10.1
 
 Run sh:
 ```
-./pull_kubernetes_images_from_mirror.sh
+./pull_docker_kubernetes_images_from_mirror.sh
 ```
 
 ## Run Local Dashboard 
