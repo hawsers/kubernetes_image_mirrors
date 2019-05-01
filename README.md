@@ -4,6 +4,18 @@
 Check kubernetes version in "About Docker Desktop"
 ![About Docker Desktop](https://user-images.githubusercontent.com/1544010/56942975-f34cdd00-6b4f-11e9-8042-142b8b116419.png)
 
+# List kubernetes image version list
+```
+kubeadm config images list --kubernetes-version=v1.10.11
+```
+
+## Other Version List
+* KUBE_VERSION: see above from your docker desktop. other kubernetes version: https://github.com/kubernetes/sig-release/tree/master/releases/
+* ETCD_VERSION: https://github.com/kubernetes/kubernetes/blob/master/cluster/images/etcd/migrate-if-needed.sh
+* DASHBOARD_VERSION: https://github.com/kubernetes/dashboard/releases
+* DNS_VERSION: ?
+* KUBE_PAUSE_VERSION: ?
+
 ## Run sh before enable Kubernetes 
 
 Update variables in pull_kubernetes_images_from_mirror.sh.
