@@ -13,7 +13,7 @@ images=(kubernetes-helm.tiller:${HELM_VERSION})
 
 for imageName in ${images[@]} ; do
   docker pull $MIRROR_URL/$imageName
-  docker tag  $MIRROR_URL/$imageName $GCR_URL/kubernetes-helm/tiller
+  docker tag  $MIRROR_URL/$imageName $GCR_URL/kubernetes-helm/tiller:${HELM_VERSION}
   docker rmi $MIRROR_URL/$imageName
 done
 
