@@ -1,59 +1,73 @@
 # Kubernetes Images Mirror
 
-# Check your docker's kubernetes version
-Check kubernetes version in "About Docker Desktop"
-![About Docker Desktop](https://user-images.githubusercontent.com/1544010/56942975-f34cdd00-6b4f-11e9-8042-142b8b116419.png)
 
-# List kubernetes image version list
-```
-kubeadm config images list --kubernetes-version=v1.10.11
-```
+## How to use
 
-## Other Version List
-* KUBE_VERSION: see above from your docker desktop. other kubernetes version: https://github.com/kubernetes/sig-release/tree/master/releases/
-* ETCD_VERSION: https://github.com/kubernetes/kubernetes/blob/master/cluster/images/etcd/migrate-if-needed.sh
-* DASHBOARD_VERSION: https://github.com/kubernetes/dashboard/releases
-* DNS_VERSION: ?
-* KUBE_PAUSE_VERSION: ?
+### determine your kubernetes version
+For example, If you need to use kubernetes in docker, check kubernetes version in "About Docker Desktop"
 
-## Run sh before enable Kubernetes 
+### Download Images From Mirror by script:
+To pull the latest version images:
+```
+./pull_k8s_by_hawsers.sh
+```
+To pull specific version images:
+```
+./pull_k8s_by_hawsers.sh -v=<kubernetes_version>
+```
+required images will be downloaded & retagged automatically:
 
-Update variables in pull_docker_kubernetes_images_from_mirror.sh.
-For example:
-
-```
-KUBE_VERSION=v1.10.11
-KUBE_PAUSE_VERSION=3.1
-ETCD_VERSION=3.1.12
-DNS_VERSION=1.14.8
-DASHBOARD_VERSION=v1.10.1
-```
-
-Run sh:
-```
-./pull_docker_kubernetes_images_from_mirror.sh
-```
-
-## Run Local Dashboard 
-```
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/master/aio/deploy/recommended/kubernetes-dashboard.yaml
-```
-
-## Run Proxy for dashboard
-You can access Dashboard using the kubectl command-line tool by running the following command:
-
-```
-kubectl proxy
-```
-
-## Check bearer token for dashboard authentication
-```
-kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-user | awk '{print $1}')
-```
-
-## Open Local Dashboard URL
-```
-http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/
-```
+### Launch Kubernetes by any supported ways
+* Enable Kubernetes Support in Docker
+* MiniKube
+* ... 
 
 **ENJOY Kubernetes!!!**
+
+## Supported Kubernetes Versions 
+v1.10.0+
+
+## Mirror Image List
+
+*version 1.12+*
+- etcd
+- pause
+- kube-proxy
+- kube-scheduler
+- kube-apiserver
+- kube-controller-manager
+- k8s-dns-sidecar
+- k8s-dns-kube-dns
+- k8s-dns-dnsmasq-nanny
+- coredns
+
+*version 1.12-*
+- etcd-amd64
+- pause-amd64
+- kube-proxy-amd64
+- kube-scheduler-amd64
+- kube-apiserver-amd64
+- kube-controller-manager-amd64
+- k8s-dns-dnsmasq-nanny-amd64
+- k8s-dns-kube-dns-amd64
+- k8s-dns-sidecar-amd64
+
+*dashboard*
+- kubernetes-dashboard-amd64
+
+*Helm*
+- kubernetes-helm.tiller
+
+
+## Version List
+* In [kubernetes_image_versions.json](https://raw.githubusercontent.com/hawsers/kubernetes_image_mirrors/master/kubernetes_image_versions.json)
+* [All kubernetes version](https://github.com/kubernetes/sig-release/tree/master/releases/)
+* [All dashboard version](https://github.com/kubernetes/dashboard/releases)
+
+## Image Name Break Changes
+refer to: https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm-init/#running-kubeadm-without-an-internet-connection
+
+```In Kubernetes 1.12 and later, the k8s.gcr.io/kube-*, k8s.gcr.io/etcd and k8s.gcr.io/pause images don’t require an -${ARCH} suffix.```
+
+
+
