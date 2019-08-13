@@ -13,4 +13,4 @@ before_script:
   - sudo apt-get install -y kubeadm 
   - sudo apt-mark hold kubeadm 
 script:
-  - bash ./build.sh
+  - bash ./sync_kubernetes_image_version.sh
