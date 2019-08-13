@@ -2,7 +2,6 @@
 
 # Prerequisite
 # Make sure you set secret enviroment variables in Travis CI
-# TARGET_REPOSITORY
 # API_TOKEN
 
 # Kubeadm available version:
@@ -47,7 +46,6 @@ fi
 
 target_version_images=(`kubeadm config images list --kubernetes-version=${target_version}`)
 
-# TODO: combine all images
 for i in "${target_version_images[@]}"; do
     json_string+=",\"${i}\""
 done
@@ -56,9 +54,7 @@ done
 json_string=${json_string#","}
 
 # Git setup
-# git status
-
-# # reAttach for Travis-CI
+# reAttach for Travis-CI
 git remote rm origin
 git remote add origin https://hawsers:${API_TOKEN}@github.com/hawsers/kubernetes_image_mirrors.git
 git remote -v
