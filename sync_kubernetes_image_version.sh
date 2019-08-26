@@ -44,7 +44,7 @@ if [ -z "$target_version" ]; then
 
 fi
 
-target_version_images=(`kubeadm config images list --kubernetes-version=${target_version}`)
+target_version_images=(`kubeadm config images list --kubernetes-version=${target_version//\'}`)
 
 for i in "${target_version_images[@]}"; do
     json_string+=",\"${i}\""
