@@ -37,9 +37,19 @@ dependent images will be downloaded & retagged automatically
 ### On Windows
 
 Please use git bash to launch this script.
+
 jq for windows is required, you could use chocolatey in cmd(admin) to install:
 ```
 choco install jq
+```
+the script parameter is a little different,
+in linux:
+```
+./pull_by_hawsers.sh -v=v1.15.10
+```
+in windows, change '=' to ' ' as:
+```
+./pull_by_hawsers.sh -v v1.15.10
 ```
 
 ### Supported Kubernetes Versions 
