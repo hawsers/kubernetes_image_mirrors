@@ -37,6 +37,10 @@ dependent images will be downloaded & retagged automatically
 ### On Windows
 
 Please use git bash to launch this script.
+jq for windows is required, you could use chocolatey in cmd(admin) to install:
+```
+choco install jq
+```
 
 ### Supported Kubernetes Versions 
 
