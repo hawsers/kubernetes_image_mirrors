@@ -70,12 +70,12 @@ case $product_flag in
     for image in ${images[@]} ; do
         mirror_image=${image/$GCR_PREFIX/$MIRROR_PREFIX}
 
-        # echo $image
+        # echo ${image//\'}
         # echo ${mirror_image//\'}
         # echo ${mirror_image}
 
           docker pull ${mirror_image//\'}
-          docker tag ${mirror_image//\'} $image
+          docker tag ${mirror_image//\'} ${image//\'}
           docker rmi ${mirror_image//\'}
     done
     ;;
