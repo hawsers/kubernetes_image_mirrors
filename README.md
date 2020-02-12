@@ -36,6 +36,10 @@ Change to [English](https://github.com/hawsers/kubernetes_image_mirrors/blob/mas
 ### 在 Windows 平台运行
 
 请使用git bash来运行这里的脚本.
+需要安装jq，可以在admin权限的cmd下使用chocolatey来安装：
+```
+choco install jq
+```
 
 ### 支出的 Kubernetes 版本 
 
