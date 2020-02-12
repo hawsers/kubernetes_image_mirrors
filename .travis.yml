@@ -11,6 +11,8 @@ before_script:
     deb https://apt.kubernetes.io/ kubernetes-xenial main'
   - sudo apt-get update
   - sudo apt-get install -y kubeadm 
+  # - apt-get install -qy kubeadm=<version>
   - sudo apt-mark hold kubeadm 
+  - kubeadm -v
 script:
   - bash ./sync_kubernetes_image_version.sh
