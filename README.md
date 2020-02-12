@@ -40,6 +40,15 @@ Change to [English](https://github.com/hawsers/kubernetes_image_mirrors/blob/mas
 ```
 choco install jq
 ```
+脚本的参数传递方式有点差异，
+在linux上是:
+```
+./pull_by_hawsers.sh -v=v1.15.10
+```
+在windows上用' '替换'='：
+```
+./pull_by_hawsers.sh -v v1.15.10
+```
 
 ### 支出的 Kubernetes 版本 
 
