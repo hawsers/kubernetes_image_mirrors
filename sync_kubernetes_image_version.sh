@@ -3,6 +3,7 @@
 # Prerequisite
 # Make sure you set secret enviroment variables in Travis CI
 # API_TOKEN
+# TARGET_VERSION
 
 # Kubeadm available version:
 # curl -s https://packages.cloud.google.com/apt/dists/kubernetes-xenial/main/binary-amd64/Packages | grep Version | awk '{print $2}'
@@ -10,7 +11,7 @@
 
 set -ex
 
-target_version=""
+target_version="${TARGET_VERSION}"
 
 while getopts v: option
 do
