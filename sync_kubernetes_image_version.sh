@@ -3,7 +3,7 @@
 # Prerequisite
 # Make sure you set secret enviroment variables in Travis CI
 # API_TOKEN
-# TARGET_VERSION
+# TARGET_VERSION - If this env var is not set, will be sync to the latest version
 
 # Kubeadm available version:
 # curl -s https://packages.cloud.google.com/apt/dists/kubernetes-xenial/main/binary-amd64/Packages | grep Version | awk '{print $2}'
