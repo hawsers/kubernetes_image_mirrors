@@ -30,7 +30,7 @@ if [ -z "$target_version" ]; then
     # Get the latest version from github
     latest_version=`curl -sL https://api.github.com/repos/kubernetes/kubernetes/releases/latest | jq -r '.tag_name | @sh'`
 
-    if [ -n "${latest_version}" ]; then
+    if [ -n "${latest_version}" -a "${latest_version}"!="null"]; then
         for i in "${stored_versions[@]}"; do
             if [[ $i == ${latest_version} ]]; then
                 # Exit the whole script
